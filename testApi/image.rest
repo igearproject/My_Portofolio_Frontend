@@ -1,9 +1,0 @@
-POST https://gedearya.sipintek.com/api/email-list HTTP/1.1
-X-Requested-With: XMLHttpRequest
-content-type: application/json
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-
-{
-    "": "Test",
-    "alt_text": "test@gmail.com"
-}
