@@ -1,0 +1,53 @@
+POST https://gedearya.sipintek.com/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test@gmail.com",
+    "password": "123456"
+}
+
+###
+POST https://gedearya.sipintek.com/api/components HTTP/1.1
+X-Requested-With: XMLHttpRequest
+Authorization: Bearer 6|X8mBP8t2GCs85u6N3bIduQUDVI7WuD9GHWVv4ZKk
+content-type: application/json
+
+{
+    "name": "component 2",
+    "html": "<html><html>",
+    "data": "{\"data\":1}",
+    "sample_image": "https:\/\/gedearya.sipintek.com",
+    "style": "div{\r\n   color:black\r\n}",
+    "script": "console.log(1);"
+}
+
+###
+GET https://gedearya.sipintek.com/api/components HTTP/1.1
+X-Requested-With: XMLHttpRequest
+Authorization: Bearer 6|X8mBP8t2GCs85u6N3bIduQUDVI7WuD9GHWVv4ZKk
+
+
+###
+GET https://gedearya.sipintek.com/api/components/3 HTTP/1.1
+X-Requested-With: XMLHttpRequest
+Authorization: Bearer 5|07gNuKSvAVbJZoI5FAibVQf7gjoueeEy829NyhxJ
+
+###
+PUT https://gedearya.sipintek.com/api/components/3 HTTP/1.1
+X-Requested-With: XMLHttpRequest
+Authorization: Bearer 5|07gNuKSvAVbJZoI5FAibVQf7gjoueeEy829NyhxJ
+content-type: application/json
+
+{
+    "name": "component 3",
+    "html": "<html>3<html>",
+    "data": "{\"data\":3}",
+    "sample_image": "https:\/\/gedearya.sipintek3.com",
+    "style": "div{\r\n   color:black3\r\n}",
+    "script": "console.log(13);"
+}
+
+###
+DELETE https://gedearya.sipintek.com/api/components/2 HTTP/1.1
+X-Requested-With: XMLHttpRequest
+Authorization: Bearer 5|07gNuKSvAVbJZoI5FAibVQf7gjoueeEy829NyhxJ

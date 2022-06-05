@@ -1,0 +1,41 @@
+POST https://gedearya.sipintek.com/api/email-list HTTP/1.1
+X-Requested-With: XMLHttpRequest
+content-type: application/json
+
+{
+    "name": "Test",
+    "email": "test@gmail.com"
+}
+
+# Authorization: Bearer 6|X8mBP8t2GCs85u6N3bIduQUDVI7WuD9GHWVv4ZKk
+###
+GET https://gedearya.sipintek.com/api/email-list HTTP/1.1
+X-Requested-With: XMLHttpRequest
+
+###
+GET https://gedearya.sipintek.com/api/email-list/d830440b-a60e-47a4-9070-5ebab93818a7 HTTP/1.1
+X-Requested-With: XMLHttpRequest
+
+###
+PUT https://gedearya.sipintek.com/api/email-list/d830440b-a60e-47a4-9070-5ebab93818a7 HTTP/1.1
+X-Requested-With: XMLHttpRequest
+content-type: application/json
+
+{
+    "name": "Test Test 2",
+    "email": "test@gmail.com"
+}
+
+###
+DELETE https://gedearya.sipintek.com/api/email-list/d830440b-a60e-47a4-9070-5ebab93818a7 HTTP/1.1
+X-Requested-With: XMLHttpRequest
+
+###
+POST https://gedearya.sipintek.com/api/email-list/a72b69dd-ee2d-47c9-b45e-0f609a47f8fc/qr5dghksWtKsv0UJQZIsmbIAKhtVnmm1UMbs2mIT
+X-Requested-With: XMLHttpRequest
+
+###
+POST https://gedearya.sipintek.com/api/email-list/889945d5-0bf1-479c-be15-410202e938de/eyJpdiI6IlFiRkZEdzliN3hzRzdCejZld01BUEE9PSIsInZhbHVlIjoiT3FoN3pEbDlTYjN1K3RhVktvWTZWMFQ1enJEaHpiZVJoRjBzRWhiUVRBOUVJdnJ4NnE3ZklKQUhsZG9xRnN6MSIsIm1hYyI6IjQxZDY5NWUyYWQxNmY0MDEwNDE0MzYyZGJlNjViMGZjOTIxMDY5OTY2ZTI4NDM4MGM0ODIyYmQyYTgyNDczYzgiLCJ0YWciOiIifQ==/20?name=arya%20gede
+X-Requested-With: XMLHttpRequest
+####
+https://gedearya.sipintek.com/verification-message/889945d5-0bf1-479c-be15-410202e938de/eyJpdiI6IlFiRkZEdzliN3hzRzdCejZld01BUEE9PSIsInZhbHVlIjoiT3FoN3pEbDlTYjN1K3RhVktvWTZWMFQ1enJEaHpiZVJoRjBzRWhiUVRBOUVJdnJ4NnE3ZklKQUhsZG9xRnN6MSIsIm1hYyI6IjQxZDY5NWUyYWQxNmY0MDEwNDE0MzYyZGJlNjViMGZjOTIxMDY5OTY2ZTI4NDM4MGM0ODIyYmQyYTgyNDczYzgiLCJ0YWciOiIifQ==/20?name=arya%20gede

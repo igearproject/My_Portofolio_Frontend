@@ -1,0 +1,29 @@
+POST https://gedearya.sipintek.com/api/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "test1",
+    "email": "test1@gmail.com",
+    "password": "123456",
+    "confirm_password": "123456"
+}
+
+
+###
+POST https://gedearya.sipintek.com/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test@gmail.com",
+    "password": "123456"
+}
+
+###
+GET https://gedearya.sipintek.com/api/auth/me HTTP/1.1
+# X-Requested-With: XMLHttpRequest
+Authorization: Bearer 20|9sNtFhC4qjtpMyg5trkYuKfM7iKMQcUuZgnE6K0u
+content-type: application/json
+
+###
+POST https://gedearya.sipintek.com/api/auth/logout HTTP/1.1
+Authorization: Bearer 3|LT08eTWWmSiIqIMP0TT6OoXn4qGwGbWVMDoLWfQ1

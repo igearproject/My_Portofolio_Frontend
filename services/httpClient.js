@@ -1,0 +1,9 @@
+import axios from 'axios';
+
+export default axios.create({
+    baseURL: process.env.NEXT_PUBLIC_SERVER_URL_API,
+    withCredentials: true,
+    headers: {
+        "Content-type": "application/json"
+    }
+})

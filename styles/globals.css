@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+.tooltip-extra {
+  font-size: 12px !important;
+  font-weight: normal;
+ }

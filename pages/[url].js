@@ -4,16 +4,17 @@ import axios from 'axios';
 import PageNotFound from '../components/PageNotFound';
 import Script from 'next/script';
 
-export async function getStaticProps() {
-	let page=[],components=[],msg={
-		status:'success',
-		msg:'load page success'
-	};
+
+export async function getStaticProps(props) {
+    const url=props.params.url;
+    let page=[],components=[],msg=null;
+    const baseUrl=process.env.SERVER_URL_API;
 	try{
-		await axios.get(`page/home`)
+		await axios.get(`${baseUrl}page/${url}`)
 		.then((response)=>{
 			page=response.data.data;
 			components=response.data.components;
+            console.log('page =>',page);
 		})
 	}catch(error){
 		
@@ -31,13 +32,37 @@ export async function getStaticProps() {
 	}
   
 	// Pass data to the page via props
-	return { props: { page,components,msg } }
+	return { 
+        props: { 
+            page,components,msg 
+        }, 
+        revalidate: 10,
+    }
 }
 
-export default function Home({page,components,msg}) {
+export async function getStaticPaths() {
+    let pages=[],paths=[];
+	const baseUrl=process.env.NEXT_PUBLIC_SERVER_URL_API;
+    try{
+		await axios.get(`${baseUrl}pages-publish`).then((response)=>{
+            pages=response.data.data;
+            paths =pages.data.map((page) => ({
+                params: { url: page.url },
+            }));
+            
+        })
+	}catch(error){
+		console.log(error.message);
+	}
+
+    return { paths, fallback: 'blocking' }
+}
+
+export default function Page({page,components,msg}) {
 	let cssCustom='';
 	let htmlCustom='';
 	let jsCustom='';
+	
 	components.map((data)=>{
 		const component=data.components;
 		if(component.style){
@@ -50,10 +75,15 @@ export default function Home({page,components,msg}) {
 			jsCustom+=component.script;
 		}
 	});
+	
 	return (
 		<>
 		<Head>
-			<title>{page.title} - Gede Arya</title>
+            {page.title?(
+                <title>{page.title} - Gede Arya</title>
+            ):(
+                <title>Page Not Found - Gede Arya</title>
+            )}
 			{page.meta_keyword&&(<meta name="keyword" content={page.meta_keyword} />)}
 			{page.meta_decryption&&(<meta name="description" content={page.meta_decryption} />)}
 			{/* <link rel="icon" href="/favicon.ico" /> */}
@@ -61,17 +91,19 @@ export default function Home({page,components,msg}) {
 		</Head>
 		
 		
-		{page?(
+		{page.title?(
 			<div dangerouslySetInnerHTML={{__html: htmlCustom}} />
 			
 		):(
 			<PageNotFound/>
 		)}
 
-		<style jsx global>
-			{cssCustom}
-		</style>
-
+		{cssCustom&&(
+            <style jsx global>
+                {cssCustom}
+            </style>
+        )}
+		
 		<Script
 			src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"
 		/>
@@ -80,9 +112,6 @@ export default function Home({page,components,msg}) {
 		/>
 		<Script
 			src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.1/dist/js/splide.min.js"
-		/>
-		<Script
-			src="https://unpkg.com/fastest-validator"
 		/>
 		<Script id="animation" strategy="lazyOnload">
 			{`
