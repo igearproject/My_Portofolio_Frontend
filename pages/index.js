@@ -3,6 +3,7 @@ import Image from 'next/image';
 import axios from 'axios';
 import PageNotFound from '../components/PageNotFound';
 import Script from 'next/script';
+import supportError from '../services/supportError';
 
 export async function getStaticProps() {
 	let page=[],components=[],msg={
@@ -17,17 +18,7 @@ export async function getStaticProps() {
 		})
 	}catch(error){
 		
-		if(error.response){
-			msg={
-				status:'error',
-				msg:error.response.data.message
-			};
-		}else{
-			msg={
-				status:'error',
-				msg:error.message
-			};
-		}
+		msg=supportError.getData('component',error);
 	}
   
 	// Pass data to the page via props
@@ -56,7 +47,6 @@ export default function Home({page,components,msg}) {
 			<title>{page.title} - Gede Arya</title>
 			{page.meta_keyword&&(<meta name="keyword" content={page.meta_keyword} />)}
 			{page.meta_decryption&&(<meta name="description" content={page.meta_decryption} />)}
-			{/* <link rel="icon" href="/favicon.ico" /> */}
 			
 		</Head>
 		

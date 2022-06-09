@@ -45,7 +45,7 @@ const MainLayout = (props) => {
 		}catch(error){
 			setUser([]);
 			setIsAuth(false);
-			if(error.status===401||error.status===403){
+			if(error.response.status===401||error.response.status===403){
 				router.push('/login');
 			}
 		}

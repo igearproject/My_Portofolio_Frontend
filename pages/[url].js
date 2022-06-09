@@ -3,12 +3,12 @@ import Image from 'next/image';
 import axios from 'axios';
 import PageNotFound from '../components/PageNotFound';
 import Script from 'next/script';
-
+import supportError from '../services/supportError';
 
 export async function getStaticProps(props) {
     const url=props.params.url;
     let page=[],components=[],msg=null;
-    const baseUrl=process.env.SERVER_URL_API;
+    const baseUrl=process.env.NEXT_PUBLIC_SERVER_URL_API;
 	try{
 		await axios.get(`${baseUrl}page/${url}`)
 		.then((response)=>{
@@ -17,18 +17,7 @@ export async function getStaticProps(props) {
             console.log('page =>',page);
 		})
 	}catch(error){
-		
-		if(error.response){
-			msg={
-				status:'error',
-				msg:error.response.data.message
-			};
-		}else{
-			msg={
-				status:'error',
-				msg:error.message
-			};
-		}
+		msg=supportError.getData('Page',error);
 	}
   
 	// Pass data to the page via props
