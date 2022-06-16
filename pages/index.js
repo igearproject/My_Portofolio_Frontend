@@ -22,7 +22,13 @@ export async function getStaticProps() {
 	}
   
 	// Pass data to the page via props
-	return { props: { page,components,msg } }
+	// revalidate untuk ISR mode 
+	return { 
+		props: { 
+			page,components,msg 
+		}, 
+        revalidate: 10,
+	}
 }
 
 export default function Home({page,components,msg}) {

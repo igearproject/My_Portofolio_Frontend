@@ -14,10 +14,10 @@ export async function getStaticProps(props) {
 		.then((response)=>{
 			page=response.data.data;
 			components=response.data.components;
-            console.log('page =>',page);
+            // console.log('page =>',page);
 		})
 	}catch(error){
-		msg=supportError.getData('Page',error);
+		console.log(supportError.getData('Page',error));
 	}
   
 	// Pass data to the page via props
