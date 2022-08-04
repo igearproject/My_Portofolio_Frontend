@@ -5,7 +5,8 @@ import PageNotFound from '../components/PageNotFound';
 import Script from 'next/script';
 import supportError from '../services/supportError';
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+export async function getServerSideProps() {
 	let page=[],components=[],msg={
 		status:'success',
 		msg:'load page success'
@@ -27,7 +28,7 @@ export async function getStaticProps() {
 		props: { 
 			page,components,msg 
 		}, 
-        revalidate: 10,
+        // revalidate: 10,
 	}
 }
 

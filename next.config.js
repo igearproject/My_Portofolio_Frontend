@@ -10,6 +10,6 @@
 
 module.exports = {
   images: {
-    domains: ['gedearya.sipintek.com'],
+    domains: ['igedearya.sipintek.com'],
   },
 }
