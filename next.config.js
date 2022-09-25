@@ -10,6 +10,6 @@
 
 module.exports = {
   images: {
-    domains: ['igedearya.sipintek.com'],
+    domains: ['igedearya.sipintek.com','gedearyaserver.sipintek.com','localhost:3000','127.0.0.1:3000'],
   },
 }

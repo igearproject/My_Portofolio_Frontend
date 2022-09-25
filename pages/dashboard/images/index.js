@@ -109,26 +109,27 @@ const Images=()=>{
                     <>
                     {files.map((data,index)=>{
                         return(
-                            <div className="col-md-4" key={index} >
-                                <div className="rounded img-thumbnail" >
-                                    {index===0?(
+                            <div className="col-md-4 mb-4" key={index} >
+                                <div className="rounded img-thumbnail" style={{position:'relative'}}>
+                                    {/* {index===0?(
                                         <Image 
                                             layout="responsive" 
-                                            width="100%" 
-                                            height="100%" 
+                                            width="250px" 
+                                            height="250px" 
                                             src={process.env.NEXT_PUBLIC_SERVER_IMAGE_URL+data.name_file} 
                                             priority
                                             onClick={()=>handleOpenShowModal(data)}
                                         />
-                                    ):(
+                                    ):( */}
                                         <Image 
-                                            layout="responsive" 
-                                            width="100%" 
-                                            height="100%" 
+                                            layout="fixed" 
+                                            width="250px" 
+                                            height="250px" 
+                                            objectFit="contain"
                                             src={process.env.NEXT_PUBLIC_SERVER_IMAGE_URL+data.name_file} 
                                             onClick={()=>handleOpenShowModal(data)}
                                         />
-                                    )}
+                                    {/* )} */}
                                     
                                 </div>
                             </div>

@@ -60,26 +60,33 @@ const Navbar = (props) => {
                 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
+                        <Link href="/">
+                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                        </Link>
+                        </li> */}
+                        {/* <li className="nav-item">
                         <a className="nav-link " href="#">Link</a>
-                        </li>
+                        </li> */}
                         <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
+                            Home
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="#">Action</a></li>
-                            <li><a className="dropdown-item" href="#">Another action</a></li>
+                            <Link href="/" passHref >
+                                <li><a className="dropdown-item" href="#">Prod home</a></li>
+                            </Link>
+                            <Link href="/preview-home" passHref >
+                                <li><a className="dropdown-item" href="#">Dev home</a></li>
+                            </Link>
+                            {/* <li><a className="dropdown-item" href="#"> action</a></li>
                             <li><hr className="dropdown-divider"/></li>
-                            <li><a className="dropdown-item" href="#">Something else here</a></li>
+                            <li><a className="dropdown-item" href="#">Something else here</a></li> */}
                         </ul>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                         <a className="nav-link disabled">Disabled</a>
-                        </li>
+                        </li> */}
                     </ul>
                     <div className="d-flex justify-content-sm-between justify-content-md-between">
                         { props.isAuth === false ? (

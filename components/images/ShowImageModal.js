@@ -68,11 +68,13 @@ const ShowImageModal = (props) => {
                             {toastMsg&&(
                                 <ToastAlert status={toastMsg.status} msg={toastMsg.msg} setMsg={setToastMsg} autoClose={true}/>
                             )}
-                            <div className="mb-3 img-fluid">
+                            <div className="mb-3 img-fluid" style={{maxHeight:"200px",position:'relative'}}>
                                 <Image 
-                                    layout="responsive" 
-                                    width="100%" 
-                                    height="50px" 
+                                    // layout="responsive" 
+                                    layout="fixed" 
+                                    width="250px" 
+                                    height="250px" 
+                                    objectFit="contain"
                                     src={process.env.NEXT_PUBLIC_SERVER_IMAGE_URL+props.showData.name_file} 
                                 />
                             </div>

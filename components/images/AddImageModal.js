@@ -18,7 +18,7 @@ const AddImageModal = (props) => {
         setProgress(0);
         setMsg([]);
         fileUploadService.upload(selectedFile,alt,(e)=>{
-            let percentComplete = e.loaded / e.total
+            let percentComplete = e.loaded / e.total;
             percentComplete = parseInt(percentComplete * 100);
             // console.log(percentComplete);
             setProgress(percentComplete);
