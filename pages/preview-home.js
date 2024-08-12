@@ -71,6 +71,7 @@ export default function PreviewHome({page,components,msg}) {
 
 		<Script
 			src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"
+			strategy="beforeInteractive"
 		/>
 		<Script
 			src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/ScrollTrigger.min.js"
